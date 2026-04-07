@@ -1,61 +1,58 @@
-class Bank:
+class BankAccount:
 
-    def __init__(self, bal):
-        self.balance = bal
+    def __init__(self, balance):
+        self.balance = balance
 
-    def deposit(self):
-        amount = float(input("Enter Deposit Amount: "))
-        self.balance = self.balance + amount
-        print("Deposited")
+    def deposit(self, amount):
+        self.balance += amount
+        print("Amount Deposited Successfully")
 
-    def withdraw(self):
-        amount = float(input("Enter Withdraw Amount: "))
-
+    def withdraw(self, amount):
         if amount <= self.balance:
-            self.balance = self.balance - amount
-            print("Withdraw Successful")
+            self.balance -= amount
+            print("Withdrawal Successful")
         else:
-            print("No Balance")
+            print("Insufficient Balance")
 
-    def check(self):
-        print("Balance:", self.balance)
+    def check_balance(self):
+        print("Current Balance:", self.balance)
 
-    def receipt(self, name, acc):
-
+    def display_receipt(self, name, acc_no):
         print("\n------ BANK RECEIPT ------")
         print("Name       :", name)
-        print("Account No :", acc)
-        print("Final Bal  :", self.balance)
-        print("Status     : Completed")
+        print("Account No :", acc_no)
+        print("Balance    :", self.balance)
+        print("Status     : Transaction Completed")
         print("--------------------------")
 
 
 # Main Program
 
 name = input("Enter Name: ")
-acc = input("Enter Account No: ")
+acc_no = input("Enter Account Number: ")
 
-b = float(input("Enter Current Balance: "))
+balance = float(input("Enter Initial Balance: "))
+account = BankAccount(balance)
 
-obj = Bank(b)
+print("\n1. Deposit")
+print("2. Withdraw")
+print("3. Check Balance")
 
-print("\n1 Deposit")
-print("2 Withdraw")
-print("3 Check Balance")
+choice = int(input("Enter your choice: "))
 
-ch = int(input("Enter Choice: "))
+if choice == 1:
+    amt = float(input("Enter amount to deposit: "))
+    account.deposit(amt)
 
-if ch == 1:
-    obj.deposit()
+elif choice == 2:
+    amt = float(input("Enter amount to withdraw: "))
+    account.withdraw(amt)
 
-elif ch == 2:
-    obj.withdraw()
-
-elif ch == 3:
-    obj.check()
+elif choice == 3:
+    account.check_balance()
 
 else:
-    print("Wrong Choice")
+    print("Invalid Choice")
 
-# Print Receipt at End
-obj.receipt(name, acc)
+# Final Receipt
+account.display_receipt(name, acc_no)
