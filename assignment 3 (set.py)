@@ -1,31 +1,34 @@
-set1 = {1, 2, 4, 5}
-set2 = {3, 1, 6, 8}
-print(set1)
-print(set2)
+s1 = {2, 4, 6, 8}
+s2 = {1, 2, 3, 4}
 
-# Adding element in the set
-set1.add(9) #only one element can be added
-print(set1)
-set1.update([10, 11, 12, 14]) # Multiple elements can be added
-print(set1)
+print("Set 1:", s1)
+print("Set 2:", s2)
 
-# Removing elements fromt the set
-set1.remove(10)
-print(set1)
-set1.pop() #Any random element can be removed
-print(set1)
-# set1.clear() # Clear all elements form the set
-# print(set1) 
+# Adding elements
+s1.add(10)
+print("After adding one element:", s1)
 
-#Set operations
-print("Union of set1 and set2:" , set1 | set2)  
-print("Union of set1 and set2:" , set1.union(set2)) # Another method
-print("Intersection of set1 and set2:" , set1 & set2)  
-print("Intersection of set1 and set2:" , set1.intersection(set2)) # Another method
-print("Difference between set1 - set2 :", set1 - set2)
+s1.update([12, 14, 16])
+print("After adding multiple elements:", s1)
+
+# Removing elements
+s1.remove(12)
+print("After removing element:", s1)
+
+s1.discard(100)  # safe remove (no error if not present)
+print("After discard:", s1)
+
+s1.pop()
+print("After pop:", s1)
+
+# Set Operations
+print("Union:", s1.union(s2))
+print("Intersection:", s1.intersection(s2))
+print("Difference (s1 - s2):", s1.difference(s2))
+print("Symmetric Difference:", s1.symmetric_difference(s2))
 
 # Set Functions
-print(len(set1))
-print(max(set1))
-print(min(set1))
-print(sum(set1))
+print("Length:", len(s1))
+print("Maximum:", max(s1))
+print("Minimum:", min(s1))
+print("Sum:", sum(s1))
