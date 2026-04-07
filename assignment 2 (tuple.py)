@@ -1,28 +1,29 @@
-tuple = (10, 20, 30, 50, 60)
-print(tuple)
+tup = (5, 15, 25, 35, 45)
+print("Original Tuple:", tup)
 
-# single tuple
-tup = (30,) # for single tuple comma important
-print(tup)
+# Single element tuple
+single = (99,)
+print("Single Tuple:", single)
 
-# Accesing elements
-print(tuple[0])
-print(tuple[-1])
+# Accessing elements
+print("First element:", tup[0])
+print("Last element:", tup[-1])
 
-# Slicing a tuple
-print(tuple[0:4])
+# Slicing
+print("First 4 elements:", tup[:4])
+print("Middle elements:", tup[1:4])
 
 # Tuple Functions
-print(len(tuple))
-print(max(tuple))
-print(min(tuple))
-print(sum(tuple))
+print("Length:", len(tup))
+print("Maximum:", max(tup))
+print("Minimum:", min(tup))
+print("Sum:", sum(tup))
 
 # Tuple Methods
-print(tuple.count(20))
-print(tuple.index(30))
+print("Count of 25:", tup.count(25))
+print("Index of 35:", tup.index(35))
 
-#Nested Tuple
-t = (1, 3, 5), (6,7,8)
-print(t[1][0])
-print(t[0][0])
+# Nested Tuple
+nested = ((2, 4, 6), (8, 10, 12))
+print("Access nested element:", nested[0][1])
+print("Access another element:", nested[1][2])
