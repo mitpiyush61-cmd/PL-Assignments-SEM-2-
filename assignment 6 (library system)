@@ -1,39 +1,37 @@
 class Library:
 
     def __init__(self):
-        self.book1 = "Python"
-        self.book2 = "C"
-        self.book3 = "Java"
-        self.book4 = "DSA"
+        self.books = ["Python", "C", "Java", "DSA"]
 
     def show_books(self):
-        print("Available Books:")
-        print(self.book1)
-        print(self.book2)
-        print(self.book3)
-        print(self.book4)
+        print("\nAvailable Books:")
+        for book in self.books:
+            print(book)
 
-    def issue_book(self):
+    def issue_book(self, book_name):
+        if book_name in self.books:
+            self.books.remove(book_name)
+            print(f"{book_name} issued successfully")
+        else:
+            print("Book not available")
 
-        print("Python issued")
-        self.book1 = "Issued"
-
-    def return_book(self):
-
-        print("Python returned")
-        self.book1 = "Python"
+    def return_book(self, book_name):
+        self.books.append(book_name)
+        print(f"{book_name} returned successfully")
 
 
 # Main Program
 
-obj = Library()
+lib = Library()
 
-obj.show_books()
+lib.show_books()
 
-obj.issue_book()
+book = input("\nEnter book to issue: ")
+lib.issue_book(book)
 
-obj.show_books()
+lib.show_books()
 
-obj.return_book()
+book = input("\nEnter book to return: ")
+lib.return_book(book)
 
-obj.show_books()
+lib.show_books()
