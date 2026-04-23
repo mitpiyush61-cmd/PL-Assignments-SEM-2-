@@ -1,0 +1,41 @@
+class Person:
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+
+    def introduce(self):
+        print("Name:", self._name)
+        print("Age:", self._age)
+
+
+class Employee(Person):
+    def __init__(self, name, age, employee_id, salary):
+        super().__init__(name, age)
+        self._employee_id = employee_id
+        self._salary = salary
+
+    def get_employee_info(self):
+        print("Name:", self._name)
+        print("Age:", self._age)
+        print("Employee ID:", self._employee_id)
+        print("Salary:", self._salary)
+
+
+class Manager(Employee):
+    def __init__(self, name, age, employee_id, salary, department, bonus):
+        super().__init__(name, age, employee_id, salary)
+        self._department = department
+        self._bonus = bonus
+
+    def get_manager_info(self):
+        print("Name:", self._name)
+        print("Age:", self._age)
+        print("Employee ID:", self._employee_id)
+        print("Salary:", self._salary)
+        print("Department:", self._department)
+        print("Bonus:", self._bonus)
+
+
+# Object Creation (changed values)
+x = Manager("Piyush", 19, 3405, 750000, "Cyber Security", 50000)
+x.get_manager_info()
